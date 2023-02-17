@@ -11,6 +11,9 @@ apache.sh to install apache on our instance.
 
 After Installing apache,take the public ip and map it to port 80 on your web browser to see if its installed. It will bring out a default apache ubuntu web page.
        http://54.224.29.98:80
-3. Next stepis to install MySQL. A database management system used for storing and managing data generated from our webapp in a relational database.
+3. Next stepis to install MySQL. A database management system used for storing and managing data generated from our webapp in a relational database. Run the script and follow instructions there to set up our database. Configure the password and try logging-in to see if your configurations are alright.
+
+4. We move on to install PHP which will work as a serverside or backend software to help display dynamic web pages and interact with db-server(MySQL).
+
 
 
