@@ -39,6 +39,18 @@ After Installing apache,take the public ip and map it to port 80 on your web bro
             sudo a2ensite lamp-stack.conf
     5. disable the default virtual host so apache will show your new virtual host configuration.
               sudo a2dissite 000-default.
-    6. Our new configuration is going to display an epty page when we check us       ing our ip or dns name but we can change that. cd /var/www/lamp-stack and       create an index.html. write multiple lines of html inside and save.
-       This way,our page wont be empty.
-    7. 
+    6. Our new configuration is going to display an epty page when we check using our ip or dns name but we can change that. cd /var/www/lamp-stack and create an index.html. write multiple lines of html inside and save.This way,our page wont be empty.
+    7. The next step is to enable php on our web page. first,we create a file named index.php and add it to our /var/www/lamp-stack  directory with two lines of php code
+                  <?php
+                  phpinfo();    
+       save the file and proceed to configuring the directory index of our apache server.
+    8      sudo vim /etc/apache2/mods-enabled/dir.conf
+           <IfModule mod_dir.c>
+             #Change this:
+             #DirectoryIndex index.html index.cgi index.pl index.php index.xhtml index.htm
+             #To this:
+             DirectoryIndex index.php index.html index.cgi index.pl index.xhtml index.htm
+           </IfModule>
+            sudo systemctl reload apache2
+    9. check the apache page,a php page should be displayed,with information about your web servers,this help to fix bug issues and find details about our web server.
+    10. Finally delete the index.php file from the /var/www/lamp-stack directory because it is not safe for end-users to view this page.
